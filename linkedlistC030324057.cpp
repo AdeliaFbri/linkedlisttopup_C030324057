@@ -17,9 +17,9 @@ struct Node {
 Node* head = nullptr;
 
 void inisialisasiData() {
-    Node* n1 = new Node{{"Arin", "Diamond FF", 155000}, nullptr};
-    Node* n2 = new Node{{"Adel", "UC PUBG", 140000}, nullptr};
-    Node* n3 = new Node{{"Aulia", "Diamond ML", 90000}, nullptr};
+    Node* n1 = new Node{{"Aulia", "Diamond FF", 15500}, nullptr};
+    Node* n2 = new Node{{"Adel", "UC PUBG", 14000}, nullptr};
+    Node* n3 = new Node{{"Arin", "Diamond ML", 9000}, nullptr};
 
     head = n1;
     n1->next = n2;
@@ -124,4 +124,51 @@ void totalHarga() {
 
     cout << "Total seluruh harga top up: Rp " << total << endl;
     getch();
+}
+
+void menu() {
+    system("cls");
+    cout << "=== Menu Data Pelanggan Top Up Game ===\n";
+    cout << "1. Inisialisasi Data\n";
+    cout << "2. Menampilkan Data Pelanggan\n";
+    cout << "3. Menambah Data Pelanggan\n";
+    cout << "4. Menghapus Data Pelanggan\n";
+    cout << "5. Total Semua Harga Top Up\n";
+    cout << "6. Exit\n";
+    cout << "Masukkan pilihan: ";
+}
+
+int main() {
+    char pilih;
+    do {
+        menu();
+        pilih = getch();
+        switch (pilih) {
+            case '1': inisialisasiData(); 
+            break;
+ 
+            case '2': tampilkanPelanggan(); 
+            break;
+
+            case '3': tambahPelanggan();
+            break;
+
+            case '4': hapusPelanggan(); 
+            break;
+
+            case '5': totalHarga(); 
+            break;
+
+            case '6': 
+            break;
+
+            default:
+                system("cls");
+                cout << "Pilihan tidak tersedia!\n";
+                getch();
+                break;
+        }
+    } while (pilih != '6');
+
+    return 0;
 }
